@@ -1,0 +1,12 @@
+{% load i18n %}
+
+<div class="grp-row select2-filter-row">
+	<label>{% blocktrans with title|capfirst as filter_title %}{{ filter_title }}{% endblocktrans %}</label>
+	<select class="django-select2-admin-filter {{ class }}"
+			{% for key, val in attrs.items %}
+				{{ key }}="{{ val }}"
+			{% endfor %}
+				{% if multiple %} multiple {% endif %}>
+		{% for choice in choices %}<option value="{{ choice.value }}"{% if choice.selected %} selected {% endif %}>{{ choice.display }}</option>{% endfor %}
+	</select>
+</div>

@@ -1,0 +1,31 @@
+{% extends "admin/change_list_filter_confirm_sidebar.html" %}
+
+{% load select2_filters static i18n %}
+
+<!-- STYLESHEETS -->
+{% block stylesheets %}
+    {{ block.super }}
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css" type="text/css" media="screen" rel="stylesheet">
+{% endblock %}
+
+<!-- JAVASCRIPTS -->
+{% block javascripts %}
+    {{ block.super }}
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
+    <script type="text/javascript" src="{% static 'django_select2/django_select2.js' %}"></script>
+    <script type="text/javascript" src="{% static 'select2_admin_filter.js' %}"></script>
+{% endblock %}
+
+<!-- FILTERS -->
+{% block filters %}
+    <div id="changelist-filter" class="grp-module grp-filter">
+        <h2>{% trans 'Filter' %}</h2>
+        {% for spec in cl.filter_specs %}{% admin_list_filter cl spec %}{% endfor %}
+        <div class="grp-module">
+            <div class="grp-row" id="filter-confirm-row">
+                <a href="" role="button" id="filter-apply" class="grp-button">{% trans 'Apply' %}</a>
+                <a href="?" id="filter-clear" class="grp-button grp-reset-link">{% trans 'Reset' %}</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

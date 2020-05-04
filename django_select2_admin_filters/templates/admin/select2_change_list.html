@@ -1,0 +1,33 @@
+{% extends "admin/change_list.html" %}
+
+{% load select2_filters static i18n %}
+
+<!-- STYLESHEETS -->
+{% block extrastyle %}
+    {{ block.super }}
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css" type="text/css" media="screen" rel="stylesheet">
+    <link href="{% static 'select2_admin_filter.css' %}" type="text/css" media="screen" rel="stylesheet">
+{% endblock %}
+
+<!-- JAVASCRIPTS -->
+{% block extrahead %}
+    {{ block.super }}
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
+    <script type="text/javascript" src="{% static 'django_select2/django_select2.js' %}"></script>
+    <script type="text/javascript" src="{% static 'select2_admin_filter.js' %}"></script>
+{% endblock %}
+
+<!-- FILTERS -->
+{% block filters %}
+    {% if cl.has_filters %}
+        <div id="changelist-filter">
+            <h2>{% trans 'Filter' %}</h2>
+            {% for spec in cl.filter_specs %}{% admin_list_filter cl spec %}{% endfor %}
+            <div id="filter-confirm-row">
+                <a href="" role="button" id="filter-apply">{% trans 'Apply' %}</a>
+                <a href="?" id="filter-clear" class="clear">{% trans 'Reset' %}</a>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
