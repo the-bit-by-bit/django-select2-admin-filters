@@ -1,0 +1,1 @@
+include django_select2_admin_filters/templates/*
