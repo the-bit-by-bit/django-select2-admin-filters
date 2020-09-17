@@ -1,2 +1,2 @@
-include django_select2_admin_filters/templates/*
+include django_select2_admin_filters/templates/admin/*
 include django_select2_admin_filters/static/*
