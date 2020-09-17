@@ -14,7 +14,7 @@ class ModelSelect2Filter(ModelFilterMixin, AdminFilterWidget):
         val = self.value()
         if val:
             return self.autocomplete_queryset.filter(pk=val)
-        return None
+        return []
 
     def choices(self, changelist):
         yield {

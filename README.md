@@ -43,9 +43,9 @@ Filters are generally of two types, but each of them can be single or multiple s
 * Use filter in your admin.py
     ```python
       from django.contrib import admin
-      from libs.django_select2_admin_filters.admin import (
+      from django_select2_admin_filters.admin import (
           Select2AdminFilterMixin)
-      from libs.django_select2_admin_filters.filters import (
+      from django_select2_admin_filters.filters import (
           ChoiceSelect2Filter, MultipleChoiceSelect2Filter,
           ModelSelect2Filter, MultipleModelSelect2Filter)
       from your_app.models import Country, Person, Profession
