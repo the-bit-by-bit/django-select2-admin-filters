@@ -53,6 +53,7 @@ class ModelFilterMixin(Select2FilterMixin):
             'name': f'{self.parameter_name}-filter',
             'data-parameter_name': self.parameter_name,
         })
+        self.attrs.update(getattr(self, 'widget_attrs', {}))
         self.css_class = self.attrs.pop('class', '')
 
     def get_display_label(self, obj):
@@ -77,6 +78,7 @@ class ChoiceFilterMixin(Select2FilterMixin):
             'name': f'{self.parameter_name}-filter',
             'data-parameter_name': self.parameter_name,
         })
+        self.attrs.update(getattr(self, 'widget_attrs', {}))
         self.css_class = self.attrs.pop('class', '')
 
     def lookups(self, request, model_admin):

@@ -14,7 +14,7 @@ def admin_list_filter(cl, spec):
         'title': spec.title,
         'choices': list(spec.choices(cl)),
         'spec': spec,
-        'class': spec.css_class,
-        'attrs': spec.attrs,
+        'class': getattr(spec, 'css_class', ''),
+        'attrs': getattr(spec, 'attrs', ''),
         'multiple': getattr(spec, 'multiple', False),
     })
